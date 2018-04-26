@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -65,8 +64,8 @@ instance encodeCode :: Encode Code where encode = genericEncode options
 
 newtype CreatePrivateDnsNamespaceRequest = CreatePrivateDnsNamespaceRequest 
   { "Name" :: (NamespaceName)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "Description" :: NullOrUndefined (ResourceDescription)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "Description" :: Maybe (ResourceDescription)
   , "Vpc" :: (ResourceId)
   }
 derive instance newtypeCreatePrivateDnsNamespaceRequest :: Newtype CreatePrivateDnsNamespaceRequest _
@@ -77,17 +76,17 @@ instance encodeCreatePrivateDnsNamespaceRequest :: Encode CreatePrivateDnsNamesp
 
 -- | Constructs CreatePrivateDnsNamespaceRequest from required parameters
 newCreatePrivateDnsNamespaceRequest :: NamespaceName -> ResourceId -> CreatePrivateDnsNamespaceRequest
-newCreatePrivateDnsNamespaceRequest _Name _Vpc = CreatePrivateDnsNamespaceRequest { "Name": _Name, "Vpc": _Vpc, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreatePrivateDnsNamespaceRequest _Name _Vpc = CreatePrivateDnsNamespaceRequest { "Name": _Name, "Vpc": _Vpc, "CreatorRequestId": Nothing, "Description": Nothing }
 
 -- | Constructs CreatePrivateDnsNamespaceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePrivateDnsNamespaceRequest' :: NamespaceName -> ResourceId -> ( { "Name" :: (NamespaceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) , "Vpc" :: (ResourceId) } -> {"Name" :: (NamespaceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) , "Vpc" :: (ResourceId) } ) -> CreatePrivateDnsNamespaceRequest
-newCreatePrivateDnsNamespaceRequest' _Name _Vpc customize = (CreatePrivateDnsNamespaceRequest <<< customize) { "Name": _Name, "Vpc": _Vpc, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreatePrivateDnsNamespaceRequest' :: NamespaceName -> ResourceId -> ( { "Name" :: (NamespaceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) , "Vpc" :: (ResourceId) } -> {"Name" :: (NamespaceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) , "Vpc" :: (ResourceId) } ) -> CreatePrivateDnsNamespaceRequest
+newCreatePrivateDnsNamespaceRequest' _Name _Vpc customize = (CreatePrivateDnsNamespaceRequest <<< customize) { "Name": _Name, "Vpc": _Vpc, "CreatorRequestId": Nothing, "Description": Nothing }
 
 
 
 newtype CreatePrivateDnsNamespaceResponse = CreatePrivateDnsNamespaceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeCreatePrivateDnsNamespaceResponse :: Newtype CreatePrivateDnsNamespaceResponse _
 derive instance repGenericCreatePrivateDnsNamespaceResponse :: Generic CreatePrivateDnsNamespaceResponse _
@@ -97,19 +96,19 @@ instance encodeCreatePrivateDnsNamespaceResponse :: Encode CreatePrivateDnsNames
 
 -- | Constructs CreatePrivateDnsNamespaceResponse from required parameters
 newCreatePrivateDnsNamespaceResponse :: CreatePrivateDnsNamespaceResponse
-newCreatePrivateDnsNamespaceResponse  = CreatePrivateDnsNamespaceResponse { "OperationId": (NullOrUndefined Nothing) }
+newCreatePrivateDnsNamespaceResponse  = CreatePrivateDnsNamespaceResponse { "OperationId": Nothing }
 
 -- | Constructs CreatePrivateDnsNamespaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePrivateDnsNamespaceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> CreatePrivateDnsNamespaceResponse
-newCreatePrivateDnsNamespaceResponse'  customize = (CreatePrivateDnsNamespaceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newCreatePrivateDnsNamespaceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> CreatePrivateDnsNamespaceResponse
+newCreatePrivateDnsNamespaceResponse'  customize = (CreatePrivateDnsNamespaceResponse <<< customize) { "OperationId": Nothing }
 
 
 
 newtype CreatePublicDnsNamespaceRequest = CreatePublicDnsNamespaceRequest 
   { "Name" :: (NamespaceName)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "Description" :: NullOrUndefined (ResourceDescription)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "Description" :: Maybe (ResourceDescription)
   }
 derive instance newtypeCreatePublicDnsNamespaceRequest :: Newtype CreatePublicDnsNamespaceRequest _
 derive instance repGenericCreatePublicDnsNamespaceRequest :: Generic CreatePublicDnsNamespaceRequest _
@@ -119,17 +118,17 @@ instance encodeCreatePublicDnsNamespaceRequest :: Encode CreatePublicDnsNamespac
 
 -- | Constructs CreatePublicDnsNamespaceRequest from required parameters
 newCreatePublicDnsNamespaceRequest :: NamespaceName -> CreatePublicDnsNamespaceRequest
-newCreatePublicDnsNamespaceRequest _Name = CreatePublicDnsNamespaceRequest { "Name": _Name, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreatePublicDnsNamespaceRequest _Name = CreatePublicDnsNamespaceRequest { "Name": _Name, "CreatorRequestId": Nothing, "Description": Nothing }
 
 -- | Constructs CreatePublicDnsNamespaceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePublicDnsNamespaceRequest' :: NamespaceName -> ( { "Name" :: (NamespaceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) } -> {"Name" :: (NamespaceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) } ) -> CreatePublicDnsNamespaceRequest
-newCreatePublicDnsNamespaceRequest' _Name customize = (CreatePublicDnsNamespaceRequest <<< customize) { "Name": _Name, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreatePublicDnsNamespaceRequest' :: NamespaceName -> ( { "Name" :: (NamespaceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) } -> {"Name" :: (NamespaceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) } ) -> CreatePublicDnsNamespaceRequest
+newCreatePublicDnsNamespaceRequest' _Name customize = (CreatePublicDnsNamespaceRequest <<< customize) { "Name": _Name, "CreatorRequestId": Nothing, "Description": Nothing }
 
 
 
 newtype CreatePublicDnsNamespaceResponse = CreatePublicDnsNamespaceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeCreatePublicDnsNamespaceResponse :: Newtype CreatePublicDnsNamespaceResponse _
 derive instance repGenericCreatePublicDnsNamespaceResponse :: Generic CreatePublicDnsNamespaceResponse _
@@ -139,21 +138,21 @@ instance encodeCreatePublicDnsNamespaceResponse :: Encode CreatePublicDnsNamespa
 
 -- | Constructs CreatePublicDnsNamespaceResponse from required parameters
 newCreatePublicDnsNamespaceResponse :: CreatePublicDnsNamespaceResponse
-newCreatePublicDnsNamespaceResponse  = CreatePublicDnsNamespaceResponse { "OperationId": (NullOrUndefined Nothing) }
+newCreatePublicDnsNamespaceResponse  = CreatePublicDnsNamespaceResponse { "OperationId": Nothing }
 
 -- | Constructs CreatePublicDnsNamespaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePublicDnsNamespaceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> CreatePublicDnsNamespaceResponse
-newCreatePublicDnsNamespaceResponse'  customize = (CreatePublicDnsNamespaceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newCreatePublicDnsNamespaceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> CreatePublicDnsNamespaceResponse
+newCreatePublicDnsNamespaceResponse'  customize = (CreatePublicDnsNamespaceResponse <<< customize) { "OperationId": Nothing }
 
 
 
 newtype CreateServiceRequest = CreateServiceRequest 
   { "Name" :: (ServiceName)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "Description" :: NullOrUndefined (ResourceDescription)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "Description" :: Maybe (ResourceDescription)
   , "DnsConfig" :: (DnsConfig)
-  , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig)
+  , "HealthCheckConfig" :: Maybe (HealthCheckConfig)
   }
 derive instance newtypeCreateServiceRequest :: Newtype CreateServiceRequest _
 derive instance repGenericCreateServiceRequest :: Generic CreateServiceRequest _
@@ -163,17 +162,17 @@ instance encodeCreateServiceRequest :: Encode CreateServiceRequest where encode 
 
 -- | Constructs CreateServiceRequest from required parameters
 newCreateServiceRequest :: DnsConfig -> ServiceName -> CreateServiceRequest
-newCreateServiceRequest _DnsConfig _Name = CreateServiceRequest { "DnsConfig": _DnsConfig, "Name": _Name, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing) }
+newCreateServiceRequest _DnsConfig _Name = CreateServiceRequest { "DnsConfig": _DnsConfig, "Name": _Name, "CreatorRequestId": Nothing, "Description": Nothing, "HealthCheckConfig": Nothing }
 
 -- | Constructs CreateServiceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServiceRequest' :: DnsConfig -> ServiceName -> ( { "Name" :: (ServiceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) , "DnsConfig" :: (DnsConfig) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) } -> {"Name" :: (ServiceName) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Description" :: NullOrUndefined (ResourceDescription) , "DnsConfig" :: (DnsConfig) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) } ) -> CreateServiceRequest
-newCreateServiceRequest' _DnsConfig _Name customize = (CreateServiceRequest <<< customize) { "DnsConfig": _DnsConfig, "Name": _Name, "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing) }
+newCreateServiceRequest' :: DnsConfig -> ServiceName -> ( { "Name" :: (ServiceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) , "DnsConfig" :: (DnsConfig) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) } -> {"Name" :: (ServiceName) , "CreatorRequestId" :: Maybe (ResourceId) , "Description" :: Maybe (ResourceDescription) , "DnsConfig" :: (DnsConfig) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) } ) -> CreateServiceRequest
+newCreateServiceRequest' _DnsConfig _Name customize = (CreateServiceRequest <<< customize) { "DnsConfig": _DnsConfig, "Name": _Name, "CreatorRequestId": Nothing, "Description": Nothing, "HealthCheckConfig": Nothing }
 
 
 
 newtype CreateServiceResponse = CreateServiceResponse 
-  { "Service" :: NullOrUndefined (Service)
+  { "Service" :: Maybe (Service)
   }
 derive instance newtypeCreateServiceResponse :: Newtype CreateServiceResponse _
 derive instance repGenericCreateServiceResponse :: Generic CreateServiceResponse _
@@ -183,12 +182,12 @@ instance encodeCreateServiceResponse :: Encode CreateServiceResponse where encod
 
 -- | Constructs CreateServiceResponse from required parameters
 newCreateServiceResponse :: CreateServiceResponse
-newCreateServiceResponse  = CreateServiceResponse { "Service": (NullOrUndefined Nothing) }
+newCreateServiceResponse  = CreateServiceResponse { "Service": Nothing }
 
 -- | Constructs CreateServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServiceResponse' :: ( { "Service" :: NullOrUndefined (Service) } -> {"Service" :: NullOrUndefined (Service) } ) -> CreateServiceResponse
-newCreateServiceResponse'  customize = (CreateServiceResponse <<< customize) { "Service": (NullOrUndefined Nothing) }
+newCreateServiceResponse' :: ( { "Service" :: Maybe (Service) } -> {"Service" :: Maybe (Service) } ) -> CreateServiceResponse
+newCreateServiceResponse'  customize = (CreateServiceResponse <<< customize) { "Service": Nothing }
 
 
 
@@ -213,7 +212,7 @@ newDeleteNamespaceRequest' _Id customize = (DeleteNamespaceRequest <<< customize
 
 
 newtype DeleteNamespaceResponse = DeleteNamespaceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeDeleteNamespaceResponse :: Newtype DeleteNamespaceResponse _
 derive instance repGenericDeleteNamespaceResponse :: Generic DeleteNamespaceResponse _
@@ -223,12 +222,12 @@ instance encodeDeleteNamespaceResponse :: Encode DeleteNamespaceResponse where e
 
 -- | Constructs DeleteNamespaceResponse from required parameters
 newDeleteNamespaceResponse :: DeleteNamespaceResponse
-newDeleteNamespaceResponse  = DeleteNamespaceResponse { "OperationId": (NullOrUndefined Nothing) }
+newDeleteNamespaceResponse  = DeleteNamespaceResponse { "OperationId": Nothing }
 
 -- | Constructs DeleteNamespaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteNamespaceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> DeleteNamespaceResponse
-newDeleteNamespaceResponse'  customize = (DeleteNamespaceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newDeleteNamespaceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> DeleteNamespaceResponse
+newDeleteNamespaceResponse'  customize = (DeleteNamespaceResponse <<< customize) { "OperationId": Nothing }
 
 
 
@@ -283,7 +282,7 @@ newDeregisterInstanceRequest' _InstanceId _ServiceId customize = (DeregisterInst
 
 
 newtype DeregisterInstanceResponse = DeregisterInstanceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeDeregisterInstanceResponse :: Newtype DeregisterInstanceResponse _
 derive instance repGenericDeregisterInstanceResponse :: Generic DeregisterInstanceResponse _
@@ -293,19 +292,19 @@ instance encodeDeregisterInstanceResponse :: Encode DeregisterInstanceResponse w
 
 -- | Constructs DeregisterInstanceResponse from required parameters
 newDeregisterInstanceResponse :: DeregisterInstanceResponse
-newDeregisterInstanceResponse  = DeregisterInstanceResponse { "OperationId": (NullOrUndefined Nothing) }
+newDeregisterInstanceResponse  = DeregisterInstanceResponse { "OperationId": Nothing }
 
 -- | Constructs DeregisterInstanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeregisterInstanceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> DeregisterInstanceResponse
-newDeregisterInstanceResponse'  customize = (DeregisterInstanceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newDeregisterInstanceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> DeregisterInstanceResponse
+newDeregisterInstanceResponse'  customize = (DeregisterInstanceResponse <<< customize) { "OperationId": Nothing }
 
 
 
 -- | <p>A complex type that contains information about the records that you want Amazon Route 53 to create when you register an instance.</p>
 newtype DnsConfig = DnsConfig 
   { "NamespaceId" :: (ResourceId)
-  , "RoutingPolicy" :: NullOrUndefined (RoutingPolicy)
+  , "RoutingPolicy" :: Maybe (RoutingPolicy)
   , "DnsRecords" :: (DnsRecordList)
   }
 derive instance newtypeDnsConfig :: Newtype DnsConfig _
@@ -316,12 +315,12 @@ instance encodeDnsConfig :: Encode DnsConfig where encode = genericEncode option
 
 -- | Constructs DnsConfig from required parameters
 newDnsConfig :: DnsRecordList -> ResourceId -> DnsConfig
-newDnsConfig _DnsRecords _NamespaceId = DnsConfig { "DnsRecords": _DnsRecords, "NamespaceId": _NamespaceId, "RoutingPolicy": (NullOrUndefined Nothing) }
+newDnsConfig _DnsRecords _NamespaceId = DnsConfig { "DnsRecords": _DnsRecords, "NamespaceId": _NamespaceId, "RoutingPolicy": Nothing }
 
 -- | Constructs DnsConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDnsConfig' :: DnsRecordList -> ResourceId -> ( { "NamespaceId" :: (ResourceId) , "RoutingPolicy" :: NullOrUndefined (RoutingPolicy) , "DnsRecords" :: (DnsRecordList) } -> {"NamespaceId" :: (ResourceId) , "RoutingPolicy" :: NullOrUndefined (RoutingPolicy) , "DnsRecords" :: (DnsRecordList) } ) -> DnsConfig
-newDnsConfig' _DnsRecords _NamespaceId customize = (DnsConfig <<< customize) { "DnsRecords": _DnsRecords, "NamespaceId": _NamespaceId, "RoutingPolicy": (NullOrUndefined Nothing) }
+newDnsConfig' :: DnsRecordList -> ResourceId -> ( { "NamespaceId" :: (ResourceId) , "RoutingPolicy" :: Maybe (RoutingPolicy) , "DnsRecords" :: (DnsRecordList) } -> {"NamespaceId" :: (ResourceId) , "RoutingPolicy" :: Maybe (RoutingPolicy) , "DnsRecords" :: (DnsRecordList) } ) -> DnsConfig
+newDnsConfig' _DnsRecords _NamespaceId customize = (DnsConfig <<< customize) { "DnsRecords": _DnsRecords, "NamespaceId": _NamespaceId, "RoutingPolicy": Nothing }
 
 
 
@@ -348,7 +347,7 @@ newDnsConfigChange' _DnsRecords customize = (DnsConfigChange <<< customize) { "D
 
 -- | <p>A complex type that contains the ID for the hosted zone that Route 53 creates when you create a namespace.</p>
 newtype DnsProperties = DnsProperties 
-  { "HostedZoneId" :: NullOrUndefined (ResourceId)
+  { "HostedZoneId" :: Maybe (ResourceId)
   }
 derive instance newtypeDnsProperties :: Newtype DnsProperties _
 derive instance repGenericDnsProperties :: Generic DnsProperties _
@@ -358,12 +357,12 @@ instance encodeDnsProperties :: Encode DnsProperties where encode = genericEncod
 
 -- | Constructs DnsProperties from required parameters
 newDnsProperties :: DnsProperties
-newDnsProperties  = DnsProperties { "HostedZoneId": (NullOrUndefined Nothing) }
+newDnsProperties  = DnsProperties { "HostedZoneId": Nothing }
 
 -- | Constructs DnsProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDnsProperties' :: ( { "HostedZoneId" :: NullOrUndefined (ResourceId) } -> {"HostedZoneId" :: NullOrUndefined (ResourceId) } ) -> DnsProperties
-newDnsProperties'  customize = (DnsProperties <<< customize) { "HostedZoneId": (NullOrUndefined Nothing) }
+newDnsProperties' :: ( { "HostedZoneId" :: Maybe (ResourceId) } -> {"HostedZoneId" :: Maybe (ResourceId) } ) -> DnsProperties
+newDnsProperties'  customize = (DnsProperties <<< customize) { "HostedZoneId": Nothing }
 
 
 
@@ -400,7 +399,7 @@ instance encodeDnsRecordList :: Encode DnsRecordList where encode = genericEncod
 
 -- | <p>The operation is already in progress.</p>
 newtype DuplicateRequest = DuplicateRequest 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDuplicateRequest :: Newtype DuplicateRequest _
 derive instance repGenericDuplicateRequest :: Generic DuplicateRequest _
@@ -410,12 +409,12 @@ instance encodeDuplicateRequest :: Encode DuplicateRequest where encode = generi
 
 -- | Constructs DuplicateRequest from required parameters
 newDuplicateRequest :: DuplicateRequest
-newDuplicateRequest  = DuplicateRequest { "Message": (NullOrUndefined Nothing) }
+newDuplicateRequest  = DuplicateRequest { "Message": Nothing }
 
 -- | Constructs DuplicateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDuplicateRequest' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> DuplicateRequest
-newDuplicateRequest'  customize = (DuplicateRequest <<< customize) { "Message": (NullOrUndefined Nothing) }
+newDuplicateRequest' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> DuplicateRequest
+newDuplicateRequest'  customize = (DuplicateRequest <<< customize) { "Message": Nothing }
 
 
 
@@ -486,7 +485,7 @@ newGetInstanceRequest' _InstanceId _ServiceId customize = (GetInstanceRequest <<
 
 
 newtype GetInstanceResponse = GetInstanceResponse 
-  { "Instance" :: NullOrUndefined (Instance)
+  { "Instance" :: Maybe (Instance)
   }
 derive instance newtypeGetInstanceResponse :: Newtype GetInstanceResponse _
 derive instance repGenericGetInstanceResponse :: Generic GetInstanceResponse _
@@ -496,20 +495,20 @@ instance encodeGetInstanceResponse :: Encode GetInstanceResponse where encode = 
 
 -- | Constructs GetInstanceResponse from required parameters
 newGetInstanceResponse :: GetInstanceResponse
-newGetInstanceResponse  = GetInstanceResponse { "Instance": (NullOrUndefined Nothing) }
+newGetInstanceResponse  = GetInstanceResponse { "Instance": Nothing }
 
 -- | Constructs GetInstanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetInstanceResponse' :: ( { "Instance" :: NullOrUndefined (Instance) } -> {"Instance" :: NullOrUndefined (Instance) } ) -> GetInstanceResponse
-newGetInstanceResponse'  customize = (GetInstanceResponse <<< customize) { "Instance": (NullOrUndefined Nothing) }
+newGetInstanceResponse' :: ( { "Instance" :: Maybe (Instance) } -> {"Instance" :: Maybe (Instance) } ) -> GetInstanceResponse
+newGetInstanceResponse'  customize = (GetInstanceResponse <<< customize) { "Instance": Nothing }
 
 
 
 newtype GetInstancesHealthStatusRequest = GetInstancesHealthStatusRequest 
   { "ServiceId" :: (ResourceId)
-  , "Instances" :: NullOrUndefined (InstanceIdList)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  , "Instances" :: Maybe (InstanceIdList)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetInstancesHealthStatusRequest :: Newtype GetInstancesHealthStatusRequest _
 derive instance repGenericGetInstancesHealthStatusRequest :: Generic GetInstancesHealthStatusRequest _
@@ -519,18 +518,18 @@ instance encodeGetInstancesHealthStatusRequest :: Encode GetInstancesHealthStatu
 
 -- | Constructs GetInstancesHealthStatusRequest from required parameters
 newGetInstancesHealthStatusRequest :: ResourceId -> GetInstancesHealthStatusRequest
-newGetInstancesHealthStatusRequest _ServiceId = GetInstancesHealthStatusRequest { "ServiceId": _ServiceId, "Instances": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newGetInstancesHealthStatusRequest _ServiceId = GetInstancesHealthStatusRequest { "ServiceId": _ServiceId, "Instances": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs GetInstancesHealthStatusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetInstancesHealthStatusRequest' :: ResourceId -> ( { "ServiceId" :: (ResourceId) , "Instances" :: NullOrUndefined (InstanceIdList) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } -> {"ServiceId" :: (ResourceId) , "Instances" :: NullOrUndefined (InstanceIdList) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } ) -> GetInstancesHealthStatusRequest
-newGetInstancesHealthStatusRequest' _ServiceId customize = (GetInstancesHealthStatusRequest <<< customize) { "ServiceId": _ServiceId, "Instances": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newGetInstancesHealthStatusRequest' :: ResourceId -> ( { "ServiceId" :: (ResourceId) , "Instances" :: Maybe (InstanceIdList) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } -> {"ServiceId" :: (ResourceId) , "Instances" :: Maybe (InstanceIdList) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } ) -> GetInstancesHealthStatusRequest
+newGetInstancesHealthStatusRequest' _ServiceId customize = (GetInstancesHealthStatusRequest <<< customize) { "ServiceId": _ServiceId, "Instances": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse 
-  { "Status" :: NullOrUndefined (InstanceHealthStatusMap)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Status" :: Maybe (InstanceHealthStatusMap)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetInstancesHealthStatusResponse :: Newtype GetInstancesHealthStatusResponse _
 derive instance repGenericGetInstancesHealthStatusResponse :: Generic GetInstancesHealthStatusResponse _
@@ -540,12 +539,12 @@ instance encodeGetInstancesHealthStatusResponse :: Encode GetInstancesHealthStat
 
 -- | Constructs GetInstancesHealthStatusResponse from required parameters
 newGetInstancesHealthStatusResponse :: GetInstancesHealthStatusResponse
-newGetInstancesHealthStatusResponse  = GetInstancesHealthStatusResponse { "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newGetInstancesHealthStatusResponse  = GetInstancesHealthStatusResponse { "NextToken": Nothing, "Status": Nothing }
 
 -- | Constructs GetInstancesHealthStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetInstancesHealthStatusResponse' :: ( { "Status" :: NullOrUndefined (InstanceHealthStatusMap) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Status" :: NullOrUndefined (InstanceHealthStatusMap) , "NextToken" :: NullOrUndefined (NextToken) } ) -> GetInstancesHealthStatusResponse
-newGetInstancesHealthStatusResponse'  customize = (GetInstancesHealthStatusResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newGetInstancesHealthStatusResponse' :: ( { "Status" :: Maybe (InstanceHealthStatusMap) , "NextToken" :: Maybe (NextToken) } -> {"Status" :: Maybe (InstanceHealthStatusMap) , "NextToken" :: Maybe (NextToken) } ) -> GetInstancesHealthStatusResponse
+newGetInstancesHealthStatusResponse'  customize = (GetInstancesHealthStatusResponse <<< customize) { "NextToken": Nothing, "Status": Nothing }
 
 
 
@@ -570,7 +569,7 @@ newGetNamespaceRequest' _Id customize = (GetNamespaceRequest <<< customize) { "I
 
 
 newtype GetNamespaceResponse = GetNamespaceResponse 
-  { "Namespace" :: NullOrUndefined (Namespace)
+  { "Namespace" :: Maybe (Namespace)
   }
 derive instance newtypeGetNamespaceResponse :: Newtype GetNamespaceResponse _
 derive instance repGenericGetNamespaceResponse :: Generic GetNamespaceResponse _
@@ -580,12 +579,12 @@ instance encodeGetNamespaceResponse :: Encode GetNamespaceResponse where encode 
 
 -- | Constructs GetNamespaceResponse from required parameters
 newGetNamespaceResponse :: GetNamespaceResponse
-newGetNamespaceResponse  = GetNamespaceResponse { "Namespace": (NullOrUndefined Nothing) }
+newGetNamespaceResponse  = GetNamespaceResponse { "Namespace": Nothing }
 
 -- | Constructs GetNamespaceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetNamespaceResponse' :: ( { "Namespace" :: NullOrUndefined (Namespace) } -> {"Namespace" :: NullOrUndefined (Namespace) } ) -> GetNamespaceResponse
-newGetNamespaceResponse'  customize = (GetNamespaceResponse <<< customize) { "Namespace": (NullOrUndefined Nothing) }
+newGetNamespaceResponse' :: ( { "Namespace" :: Maybe (Namespace) } -> {"Namespace" :: Maybe (Namespace) } ) -> GetNamespaceResponse
+newGetNamespaceResponse'  customize = (GetNamespaceResponse <<< customize) { "Namespace": Nothing }
 
 
 
@@ -610,7 +609,7 @@ newGetOperationRequest' _OperationId customize = (GetOperationRequest <<< custom
 
 
 newtype GetOperationResponse = GetOperationResponse 
-  { "Operation" :: NullOrUndefined (Operation)
+  { "Operation" :: Maybe (Operation)
   }
 derive instance newtypeGetOperationResponse :: Newtype GetOperationResponse _
 derive instance repGenericGetOperationResponse :: Generic GetOperationResponse _
@@ -620,12 +619,12 @@ instance encodeGetOperationResponse :: Encode GetOperationResponse where encode 
 
 -- | Constructs GetOperationResponse from required parameters
 newGetOperationResponse :: GetOperationResponse
-newGetOperationResponse  = GetOperationResponse { "Operation": (NullOrUndefined Nothing) }
+newGetOperationResponse  = GetOperationResponse { "Operation": Nothing }
 
 -- | Constructs GetOperationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetOperationResponse' :: ( { "Operation" :: NullOrUndefined (Operation) } -> {"Operation" :: NullOrUndefined (Operation) } ) -> GetOperationResponse
-newGetOperationResponse'  customize = (GetOperationResponse <<< customize) { "Operation": (NullOrUndefined Nothing) }
+newGetOperationResponse' :: ( { "Operation" :: Maybe (Operation) } -> {"Operation" :: Maybe (Operation) } ) -> GetOperationResponse
+newGetOperationResponse'  customize = (GetOperationResponse <<< customize) { "Operation": Nothing }
 
 
 
@@ -650,7 +649,7 @@ newGetServiceRequest' _Id customize = (GetServiceRequest <<< customize) { "Id": 
 
 
 newtype GetServiceResponse = GetServiceResponse 
-  { "Service" :: NullOrUndefined (Service)
+  { "Service" :: Maybe (Service)
   }
 derive instance newtypeGetServiceResponse :: Newtype GetServiceResponse _
 derive instance repGenericGetServiceResponse :: Generic GetServiceResponse _
@@ -660,20 +659,20 @@ instance encodeGetServiceResponse :: Encode GetServiceResponse where encode = ge
 
 -- | Constructs GetServiceResponse from required parameters
 newGetServiceResponse :: GetServiceResponse
-newGetServiceResponse  = GetServiceResponse { "Service": (NullOrUndefined Nothing) }
+newGetServiceResponse  = GetServiceResponse { "Service": Nothing }
 
 -- | Constructs GetServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetServiceResponse' :: ( { "Service" :: NullOrUndefined (Service) } -> {"Service" :: NullOrUndefined (Service) } ) -> GetServiceResponse
-newGetServiceResponse'  customize = (GetServiceResponse <<< customize) { "Service": (NullOrUndefined Nothing) }
+newGetServiceResponse' :: ( { "Service" :: Maybe (Service) } -> {"Service" :: Maybe (Service) } ) -> GetServiceResponse
+newGetServiceResponse'  customize = (GetServiceResponse <<< customize) { "Service": Nothing }
 
 
 
 -- | <p> <i>Public DNS namespaces only.</i> A complex type that contains settings for an optional health check. If you specify settings for a health check, Amazon Route 53 associates the health check with all the records that you specify in <code>DnsConfig</code>.</p> <p> <b>A and AAAA records</b> </p> <p>If <code>DnsConfig</code> includes configurations for both A and AAAA records, Route 53 creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy. </p> <p> <b>CNAME records</b> </p> <p>You can't specify settings for <code>HealthCheckConfig</code> when the <code>DNSConfig</code> includes <code>CNAME</code> for the value of <code>Type</code>. If you do, the <code>CreateService</code> request will fail with an <code>InvalidInput</code> error.</p> <p> <b>Request interval</b> </p> <p>The health check uses 30 seconds as the request interval. This is the number of seconds between the time that each Route 53 health checker gets a response from your endpoint and the time that it sends the next health check request. A health checker in each data center around the world sends your endpoint a health check request every 30 seconds. On average, your endpoint receives a health check request about every two seconds. Health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.</p> <p> <b>Health checking regions</b> </p> <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a>.</p> <p> <b>Alias records</b> </p> <p>When you register an instance, if you include the <code>AWS_ALIAS_DNS_NAME</code> attribute, Route 53 creates an alias record. Note the following:</p> <ul> <li> <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth">EvaluateTargetHealth</a>.</p> </li> <li> <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates an alias record, Route 53 doesn't create the health check.</p> </li> </ul> <p>For information about the charges for health checks, see <a href="http://aws.amazon.com/route53/pricing">Route 53 Pricing</a>.</p>
 newtype HealthCheckConfig = HealthCheckConfig 
   { "Type" :: (HealthCheckType)
-  , "ResourcePath" :: NullOrUndefined (ResourcePath)
-  , "FailureThreshold" :: NullOrUndefined (FailureThreshold)
+  , "ResourcePath" :: Maybe (ResourcePath)
+  , "FailureThreshold" :: Maybe (FailureThreshold)
   }
 derive instance newtypeHealthCheckConfig :: Newtype HealthCheckConfig _
 derive instance repGenericHealthCheckConfig :: Generic HealthCheckConfig _
@@ -683,12 +682,12 @@ instance encodeHealthCheckConfig :: Encode HealthCheckConfig where encode = gene
 
 -- | Constructs HealthCheckConfig from required parameters
 newHealthCheckConfig :: HealthCheckType -> HealthCheckConfig
-newHealthCheckConfig _Type = HealthCheckConfig { "Type": _Type, "FailureThreshold": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing) }
+newHealthCheckConfig _Type = HealthCheckConfig { "Type": _Type, "FailureThreshold": Nothing, "ResourcePath": Nothing }
 
 -- | Constructs HealthCheckConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheckConfig' :: HealthCheckType -> ( { "Type" :: (HealthCheckType) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) } -> {"Type" :: (HealthCheckType) , "ResourcePath" :: NullOrUndefined (ResourcePath) , "FailureThreshold" :: NullOrUndefined (FailureThreshold) } ) -> HealthCheckConfig
-newHealthCheckConfig' _Type customize = (HealthCheckConfig <<< customize) { "Type": _Type, "FailureThreshold": (NullOrUndefined Nothing), "ResourcePath": (NullOrUndefined Nothing) }
+newHealthCheckConfig' :: HealthCheckType -> ( { "Type" :: (HealthCheckType) , "ResourcePath" :: Maybe (ResourcePath) , "FailureThreshold" :: Maybe (FailureThreshold) } -> {"Type" :: (HealthCheckType) , "ResourcePath" :: Maybe (ResourcePath) , "FailureThreshold" :: Maybe (FailureThreshold) } ) -> HealthCheckConfig
+newHealthCheckConfig' _Type customize = (HealthCheckConfig <<< customize) { "Type": _Type, "FailureThreshold": Nothing, "ResourcePath": Nothing }
 
 
 
@@ -713,8 +712,8 @@ instance encodeHealthStatus :: Encode HealthStatus where encode = genericEncode 
 -- | <p>A complex type that contains information about an instance that Amazon Route 53 creates when you submit a <code>RegisterInstance</code> request.</p>
 newtype Instance = Instance 
   { "Id" :: (ResourceId)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "Attributes" :: NullOrUndefined (Attributes)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "Attributes" :: Maybe (Attributes)
   }
 derive instance newtypeInstance :: Newtype Instance _
 derive instance repGenericInstance :: Generic Instance _
@@ -724,12 +723,12 @@ instance encodeInstance :: Encode Instance where encode = genericEncode options
 
 -- | Constructs Instance from required parameters
 newInstance :: ResourceId -> Instance
-newInstance _Id = Instance { "Id": _Id, "Attributes": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing) }
+newInstance _Id = Instance { "Id": _Id, "Attributes": Nothing, "CreatorRequestId": Nothing }
 
 -- | Constructs Instance's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstance' :: ResourceId -> ( { "Id" :: (ResourceId) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Attributes" :: NullOrUndefined (Attributes) } -> {"Id" :: (ResourceId) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Attributes" :: NullOrUndefined (Attributes) } ) -> Instance
-newInstance' _Id customize = (Instance <<< customize) { "Id": _Id, "Attributes": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing) }
+newInstance' :: ResourceId -> ( { "Id" :: (ResourceId) , "CreatorRequestId" :: Maybe (ResourceId) , "Attributes" :: Maybe (Attributes) } -> {"Id" :: (ResourceId) , "CreatorRequestId" :: Maybe (ResourceId) , "Attributes" :: Maybe (Attributes) } ) -> Instance
+newInstance' _Id customize = (Instance <<< customize) { "Id": _Id, "Attributes": Nothing, "CreatorRequestId": Nothing }
 
 
 
@@ -753,7 +752,7 @@ instance encodeInstanceIdList :: Encode InstanceIdList where encode = genericEnc
 
 -- | <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
 newtype InstanceNotFound = InstanceNotFound 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInstanceNotFound :: Newtype InstanceNotFound _
 derive instance repGenericInstanceNotFound :: Generic InstanceNotFound _
@@ -763,19 +762,19 @@ instance encodeInstanceNotFound :: Encode InstanceNotFound where encode = generi
 
 -- | Constructs InstanceNotFound from required parameters
 newInstanceNotFound :: InstanceNotFound
-newInstanceNotFound  = InstanceNotFound { "Message": (NullOrUndefined Nothing) }
+newInstanceNotFound  = InstanceNotFound { "Message": Nothing }
 
 -- | Constructs InstanceNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstanceNotFound' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InstanceNotFound
-newInstanceNotFound'  customize = (InstanceNotFound <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInstanceNotFound' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InstanceNotFound
+newInstanceNotFound'  customize = (InstanceNotFound <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A complex type that contains information about the instances that you registered by using a specified service.</p>
 newtype InstanceSummary = InstanceSummary 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "Attributes" :: NullOrUndefined (Attributes)
+  { "Id" :: Maybe (ResourceId)
+  , "Attributes" :: Maybe (Attributes)
   }
 derive instance newtypeInstanceSummary :: Newtype InstanceSummary _
 derive instance repGenericInstanceSummary :: Generic InstanceSummary _
@@ -785,12 +784,12 @@ instance encodeInstanceSummary :: Encode InstanceSummary where encode = genericE
 
 -- | Constructs InstanceSummary from required parameters
 newInstanceSummary :: InstanceSummary
-newInstanceSummary  = InstanceSummary { "Attributes": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newInstanceSummary  = InstanceSummary { "Attributes": Nothing, "Id": Nothing }
 
 -- | Constructs InstanceSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstanceSummary' :: ( { "Id" :: NullOrUndefined (ResourceId) , "Attributes" :: NullOrUndefined (Attributes) } -> {"Id" :: NullOrUndefined (ResourceId) , "Attributes" :: NullOrUndefined (Attributes) } ) -> InstanceSummary
-newInstanceSummary'  customize = (InstanceSummary <<< customize) { "Attributes": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newInstanceSummary' :: ( { "Id" :: Maybe (ResourceId) , "Attributes" :: Maybe (Attributes) } -> {"Id" :: Maybe (ResourceId) , "Attributes" :: Maybe (Attributes) } ) -> InstanceSummary
+newInstanceSummary'  customize = (InstanceSummary <<< customize) { "Attributes": Nothing, "Id": Nothing }
 
 
 
@@ -805,7 +804,7 @@ instance encodeInstanceSummaryList :: Encode InstanceSummaryList where encode = 
 
 -- | <p>One or more specified values aren't valid. For example, when you're creating a namespace, the value of <code>Name</code> might not be a valid DNS name.</p>
 newtype InvalidInput = InvalidInput 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidInput :: Newtype InvalidInput _
 derive instance repGenericInvalidInput :: Generic InvalidInput _
@@ -815,19 +814,19 @@ instance encodeInvalidInput :: Encode InvalidInput where encode = genericEncode 
 
 -- | Constructs InvalidInput from required parameters
 newInvalidInput :: InvalidInput
-newInvalidInput  = InvalidInput { "Message": (NullOrUndefined Nothing) }
+newInvalidInput  = InvalidInput { "Message": Nothing }
 
 -- | Constructs InvalidInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidInput' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidInput
-newInvalidInput'  customize = (InvalidInput <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidInput' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidInput
+newInvalidInput'  customize = (InvalidInput <<< customize) { "Message": Nothing }
 
 
 
 newtype ListInstancesRequest = ListInstancesRequest 
   { "ServiceId" :: (ResourceId)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListInstancesRequest :: Newtype ListInstancesRequest _
 derive instance repGenericListInstancesRequest :: Generic ListInstancesRequest _
@@ -837,18 +836,18 @@ instance encodeListInstancesRequest :: Encode ListInstancesRequest where encode 
 
 -- | Constructs ListInstancesRequest from required parameters
 newListInstancesRequest :: ResourceId -> ListInstancesRequest
-newListInstancesRequest _ServiceId = ListInstancesRequest { "ServiceId": _ServiceId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListInstancesRequest _ServiceId = ListInstancesRequest { "ServiceId": _ServiceId, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListInstancesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListInstancesRequest' :: ResourceId -> ( { "ServiceId" :: (ResourceId) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"ServiceId" :: (ResourceId) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> ListInstancesRequest
-newListInstancesRequest' _ServiceId customize = (ListInstancesRequest <<< customize) { "ServiceId": _ServiceId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListInstancesRequest' :: ResourceId -> ( { "ServiceId" :: (ResourceId) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } -> {"ServiceId" :: (ResourceId) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } ) -> ListInstancesRequest
+newListInstancesRequest' _ServiceId customize = (ListInstancesRequest <<< customize) { "ServiceId": _ServiceId, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListInstancesResponse = ListInstancesResponse 
-  { "Instances" :: NullOrUndefined (InstanceSummaryList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Instances" :: Maybe (InstanceSummaryList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListInstancesResponse :: Newtype ListInstancesResponse _
 derive instance repGenericListInstancesResponse :: Generic ListInstancesResponse _
@@ -858,19 +857,19 @@ instance encodeListInstancesResponse :: Encode ListInstancesResponse where encod
 
 -- | Constructs ListInstancesResponse from required parameters
 newListInstancesResponse :: ListInstancesResponse
-newListInstancesResponse  = ListInstancesResponse { "Instances": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListInstancesResponse  = ListInstancesResponse { "Instances": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListInstancesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListInstancesResponse' :: ( { "Instances" :: NullOrUndefined (InstanceSummaryList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Instances" :: NullOrUndefined (InstanceSummaryList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListInstancesResponse
-newListInstancesResponse'  customize = (ListInstancesResponse <<< customize) { "Instances": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListInstancesResponse' :: ( { "Instances" :: Maybe (InstanceSummaryList) , "NextToken" :: Maybe (NextToken) } -> {"Instances" :: Maybe (InstanceSummaryList) , "NextToken" :: Maybe (NextToken) } ) -> ListInstancesResponse
+newListInstancesResponse'  customize = (ListInstancesResponse <<< customize) { "Instances": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListNamespacesRequest = ListNamespacesRequest 
-  { "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "Filters" :: NullOrUndefined (NamespaceFilters)
+  { "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "Filters" :: Maybe (NamespaceFilters)
   }
 derive instance newtypeListNamespacesRequest :: Newtype ListNamespacesRequest _
 derive instance repGenericListNamespacesRequest :: Generic ListNamespacesRequest _
@@ -880,18 +879,18 @@ instance encodeListNamespacesRequest :: Encode ListNamespacesRequest where encod
 
 -- | Constructs ListNamespacesRequest from required parameters
 newListNamespacesRequest :: ListNamespacesRequest
-newListNamespacesRequest  = ListNamespacesRequest { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamespacesRequest  = ListNamespacesRequest { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListNamespacesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListNamespacesRequest' :: ( { "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (NamespaceFilters) } -> {"NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (NamespaceFilters) } ) -> ListNamespacesRequest
-newListNamespacesRequest'  customize = (ListNamespacesRequest <<< customize) { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamespacesRequest' :: ( { "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (NamespaceFilters) } -> {"NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (NamespaceFilters) } ) -> ListNamespacesRequest
+newListNamespacesRequest'  customize = (ListNamespacesRequest <<< customize) { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListNamespacesResponse = ListNamespacesResponse 
-  { "Namespaces" :: NullOrUndefined (NamespaceSummariesList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Namespaces" :: Maybe (NamespaceSummariesList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListNamespacesResponse :: Newtype ListNamespacesResponse _
 derive instance repGenericListNamespacesResponse :: Generic ListNamespacesResponse _
@@ -901,19 +900,19 @@ instance encodeListNamespacesResponse :: Encode ListNamespacesResponse where enc
 
 -- | Constructs ListNamespacesResponse from required parameters
 newListNamespacesResponse :: ListNamespacesResponse
-newListNamespacesResponse  = ListNamespacesResponse { "Namespaces": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamespacesResponse  = ListNamespacesResponse { "Namespaces": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListNamespacesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListNamespacesResponse' :: ( { "Namespaces" :: NullOrUndefined (NamespaceSummariesList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Namespaces" :: NullOrUndefined (NamespaceSummariesList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListNamespacesResponse
-newListNamespacesResponse'  customize = (ListNamespacesResponse <<< customize) { "Namespaces": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamespacesResponse' :: ( { "Namespaces" :: Maybe (NamespaceSummariesList) , "NextToken" :: Maybe (NextToken) } -> {"Namespaces" :: Maybe (NamespaceSummariesList) , "NextToken" :: Maybe (NextToken) } ) -> ListNamespacesResponse
+newListNamespacesResponse'  customize = (ListNamespacesResponse <<< customize) { "Namespaces": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListOperationsRequest = ListOperationsRequest 
-  { "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "Filters" :: NullOrUndefined (OperationFilters)
+  { "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "Filters" :: Maybe (OperationFilters)
   }
 derive instance newtypeListOperationsRequest :: Newtype ListOperationsRequest _
 derive instance repGenericListOperationsRequest :: Generic ListOperationsRequest _
@@ -923,18 +922,18 @@ instance encodeListOperationsRequest :: Encode ListOperationsRequest where encod
 
 -- | Constructs ListOperationsRequest from required parameters
 newListOperationsRequest :: ListOperationsRequest
-newListOperationsRequest  = ListOperationsRequest { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListOperationsRequest  = ListOperationsRequest { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListOperationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListOperationsRequest' :: ( { "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (OperationFilters) } -> {"NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (OperationFilters) } ) -> ListOperationsRequest
-newListOperationsRequest'  customize = (ListOperationsRequest <<< customize) { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListOperationsRequest' :: ( { "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (OperationFilters) } -> {"NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (OperationFilters) } ) -> ListOperationsRequest
+newListOperationsRequest'  customize = (ListOperationsRequest <<< customize) { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListOperationsResponse = ListOperationsResponse 
-  { "Operations" :: NullOrUndefined (OperationSummaryList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Operations" :: Maybe (OperationSummaryList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListOperationsResponse :: Newtype ListOperationsResponse _
 derive instance repGenericListOperationsResponse :: Generic ListOperationsResponse _
@@ -944,19 +943,19 @@ instance encodeListOperationsResponse :: Encode ListOperationsResponse where enc
 
 -- | Constructs ListOperationsResponse from required parameters
 newListOperationsResponse :: ListOperationsResponse
-newListOperationsResponse  = ListOperationsResponse { "NextToken": (NullOrUndefined Nothing), "Operations": (NullOrUndefined Nothing) }
+newListOperationsResponse  = ListOperationsResponse { "NextToken": Nothing, "Operations": Nothing }
 
 -- | Constructs ListOperationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListOperationsResponse' :: ( { "Operations" :: NullOrUndefined (OperationSummaryList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Operations" :: NullOrUndefined (OperationSummaryList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListOperationsResponse
-newListOperationsResponse'  customize = (ListOperationsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Operations": (NullOrUndefined Nothing) }
+newListOperationsResponse' :: ( { "Operations" :: Maybe (OperationSummaryList) , "NextToken" :: Maybe (NextToken) } -> {"Operations" :: Maybe (OperationSummaryList) , "NextToken" :: Maybe (NextToken) } ) -> ListOperationsResponse
+newListOperationsResponse'  customize = (ListOperationsResponse <<< customize) { "NextToken": Nothing, "Operations": Nothing }
 
 
 
 newtype ListServicesRequest = ListServicesRequest 
-  { "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "Filters" :: NullOrUndefined (ServiceFilters)
+  { "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "Filters" :: Maybe (ServiceFilters)
   }
 derive instance newtypeListServicesRequest :: Newtype ListServicesRequest _
 derive instance repGenericListServicesRequest :: Generic ListServicesRequest _
@@ -966,18 +965,18 @@ instance encodeListServicesRequest :: Encode ListServicesRequest where encode = 
 
 -- | Constructs ListServicesRequest from required parameters
 newListServicesRequest :: ListServicesRequest
-newListServicesRequest  = ListServicesRequest { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListServicesRequest  = ListServicesRequest { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListServicesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServicesRequest' :: ( { "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (ServiceFilters) } -> {"NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) , "Filters" :: NullOrUndefined (ServiceFilters) } ) -> ListServicesRequest
-newListServicesRequest'  customize = (ListServicesRequest <<< customize) { "Filters": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListServicesRequest' :: ( { "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (ServiceFilters) } -> {"NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) , "Filters" :: Maybe (ServiceFilters) } ) -> ListServicesRequest
+newListServicesRequest'  customize = (ListServicesRequest <<< customize) { "Filters": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListServicesResponse = ListServicesResponse 
-  { "Services" :: NullOrUndefined (ServiceSummariesList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Services" :: Maybe (ServiceSummariesList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListServicesResponse :: Newtype ListServicesResponse _
 derive instance repGenericListServicesResponse :: Generic ListServicesResponse _
@@ -987,12 +986,12 @@ instance encodeListServicesResponse :: Encode ListServicesResponse where encode 
 
 -- | Constructs ListServicesResponse from required parameters
 newListServicesResponse :: ListServicesResponse
-newListServicesResponse  = ListServicesResponse { "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing) }
+newListServicesResponse  = ListServicesResponse { "NextToken": Nothing, "Services": Nothing }
 
 -- | Constructs ListServicesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServicesResponse' :: ( { "Services" :: NullOrUndefined (ServiceSummariesList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Services" :: NullOrUndefined (ServiceSummariesList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListServicesResponse
-newListServicesResponse'  customize = (ListServicesResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing) }
+newListServicesResponse' :: ( { "Services" :: Maybe (ServiceSummariesList) , "NextToken" :: Maybe (NextToken) } -> {"Services" :: Maybe (ServiceSummariesList) , "NextToken" :: Maybe (NextToken) } ) -> ListServicesResponse
+newListServicesResponse'  customize = (ListServicesResponse <<< customize) { "NextToken": Nothing, "Services": Nothing }
 
 
 
@@ -1016,15 +1015,15 @@ instance encodeMessage :: Encode Message where encode = genericEncode options
 
 -- | <p>A complex type that contains information about a specified namespace.</p>
 newtype Namespace = Namespace 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "Name" :: NullOrUndefined (NamespaceName)
-  , "Type" :: NullOrUndefined (NamespaceType)
-  , "Description" :: NullOrUndefined (ResourceDescription)
-  , "ServiceCount" :: NullOrUndefined (ResourceCount)
-  , "Properties" :: NullOrUndefined (NamespaceProperties)
-  , "CreateDate" :: NullOrUndefined (Types.Timestamp)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
+  { "Id" :: Maybe (ResourceId)
+  , "Arn" :: Maybe (Arn)
+  , "Name" :: Maybe (NamespaceName)
+  , "Type" :: Maybe (NamespaceType)
+  , "Description" :: Maybe (ResourceDescription)
+  , "ServiceCount" :: Maybe (ResourceCount)
+  , "Properties" :: Maybe (NamespaceProperties)
+  , "CreateDate" :: Maybe (Types.Timestamp)
+  , "CreatorRequestId" :: Maybe (ResourceId)
   }
 derive instance newtypeNamespace :: Newtype Namespace _
 derive instance repGenericNamespace :: Generic Namespace _
@@ -1034,20 +1033,20 @@ instance encodeNamespace :: Encode Namespace where encode = genericEncode option
 
 -- | Constructs Namespace from required parameters
 newNamespace :: Namespace
-newNamespace  = Namespace { "Arn": (NullOrUndefined Nothing), "CreateDate": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Properties": (NullOrUndefined Nothing), "ServiceCount": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newNamespace  = Namespace { "Arn": Nothing, "CreateDate": Nothing, "CreatorRequestId": Nothing, "Description": Nothing, "Id": Nothing, "Name": Nothing, "Properties": Nothing, "ServiceCount": Nothing, "Type": Nothing }
 
 -- | Constructs Namespace's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespace' :: ( { "Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (NamespaceName) , "Type" :: NullOrUndefined (NamespaceType) , "Description" :: NullOrUndefined (ResourceDescription) , "ServiceCount" :: NullOrUndefined (ResourceCount) , "Properties" :: NullOrUndefined (NamespaceProperties) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "CreatorRequestId" :: NullOrUndefined (ResourceId) } -> {"Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (NamespaceName) , "Type" :: NullOrUndefined (NamespaceType) , "Description" :: NullOrUndefined (ResourceDescription) , "ServiceCount" :: NullOrUndefined (ResourceCount) , "Properties" :: NullOrUndefined (NamespaceProperties) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "CreatorRequestId" :: NullOrUndefined (ResourceId) } ) -> Namespace
-newNamespace'  customize = (Namespace <<< customize) { "Arn": (NullOrUndefined Nothing), "CreateDate": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Properties": (NullOrUndefined Nothing), "ServiceCount": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newNamespace' :: ( { "Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (NamespaceName) , "Type" :: Maybe (NamespaceType) , "Description" :: Maybe (ResourceDescription) , "ServiceCount" :: Maybe (ResourceCount) , "Properties" :: Maybe (NamespaceProperties) , "CreateDate" :: Maybe (Types.Timestamp) , "CreatorRequestId" :: Maybe (ResourceId) } -> {"Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (NamespaceName) , "Type" :: Maybe (NamespaceType) , "Description" :: Maybe (ResourceDescription) , "ServiceCount" :: Maybe (ResourceCount) , "Properties" :: Maybe (NamespaceProperties) , "CreateDate" :: Maybe (Types.Timestamp) , "CreatorRequestId" :: Maybe (ResourceId) } ) -> Namespace
+newNamespace'  customize = (Namespace <<< customize) { "Arn": Nothing, "CreateDate": Nothing, "CreatorRequestId": Nothing, "Description": Nothing, "Id": Nothing, "Name": Nothing, "Properties": Nothing, "ServiceCount": Nothing, "Type": Nothing }
 
 
 
 -- | <p>The namespace that you're trying to create already exists.</p>
 newtype NamespaceAlreadyExists = NamespaceAlreadyExists 
-  { "Message" :: NullOrUndefined (ErrorMessage)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "NamespaceId" :: NullOrUndefined (ResourceId)
+  { "Message" :: Maybe (ErrorMessage)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "NamespaceId" :: Maybe (ResourceId)
   }
 derive instance newtypeNamespaceAlreadyExists :: Newtype NamespaceAlreadyExists _
 derive instance repGenericNamespaceAlreadyExists :: Generic NamespaceAlreadyExists _
@@ -1057,12 +1056,12 @@ instance encodeNamespaceAlreadyExists :: Encode NamespaceAlreadyExists where enc
 
 -- | Constructs NamespaceAlreadyExists from required parameters
 newNamespaceAlreadyExists :: NamespaceAlreadyExists
-newNamespaceAlreadyExists  = NamespaceAlreadyExists { "CreatorRequestId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "NamespaceId": (NullOrUndefined Nothing) }
+newNamespaceAlreadyExists  = NamespaceAlreadyExists { "CreatorRequestId": Nothing, "Message": Nothing, "NamespaceId": Nothing }
 
 -- | Constructs NamespaceAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespaceAlreadyExists' :: ( { "Message" :: NullOrUndefined (ErrorMessage) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "NamespaceId" :: NullOrUndefined (ResourceId) } -> {"Message" :: NullOrUndefined (ErrorMessage) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "NamespaceId" :: NullOrUndefined (ResourceId) } ) -> NamespaceAlreadyExists
-newNamespaceAlreadyExists'  customize = (NamespaceAlreadyExists <<< customize) { "CreatorRequestId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "NamespaceId": (NullOrUndefined Nothing) }
+newNamespaceAlreadyExists' :: ( { "Message" :: Maybe (ErrorMessage) , "CreatorRequestId" :: Maybe (ResourceId) , "NamespaceId" :: Maybe (ResourceId) } -> {"Message" :: Maybe (ErrorMessage) , "CreatorRequestId" :: Maybe (ResourceId) , "NamespaceId" :: Maybe (ResourceId) } ) -> NamespaceAlreadyExists
+newNamespaceAlreadyExists'  customize = (NamespaceAlreadyExists <<< customize) { "CreatorRequestId": Nothing, "Message": Nothing, "NamespaceId": Nothing }
 
 
 
@@ -1070,7 +1069,7 @@ newNamespaceAlreadyExists'  customize = (NamespaceAlreadyExists <<< customize) {
 newtype NamespaceFilter = NamespaceFilter 
   { "Name" :: (NamespaceFilterName)
   , "Values" :: (FilterValues)
-  , "Condition" :: NullOrUndefined (FilterCondition)
+  , "Condition" :: Maybe (FilterCondition)
   }
 derive instance newtypeNamespaceFilter :: Newtype NamespaceFilter _
 derive instance repGenericNamespaceFilter :: Generic NamespaceFilter _
@@ -1080,12 +1079,12 @@ instance encodeNamespaceFilter :: Encode NamespaceFilter where encode = genericE
 
 -- | Constructs NamespaceFilter from required parameters
 newNamespaceFilter :: NamespaceFilterName -> FilterValues -> NamespaceFilter
-newNamespaceFilter _Name _Values = NamespaceFilter { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newNamespaceFilter _Name _Values = NamespaceFilter { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 -- | Constructs NamespaceFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespaceFilter' :: NamespaceFilterName -> FilterValues -> ( { "Name" :: (NamespaceFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } -> {"Name" :: (NamespaceFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } ) -> NamespaceFilter
-newNamespaceFilter' _Name _Values customize = (NamespaceFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newNamespaceFilter' :: NamespaceFilterName -> FilterValues -> ( { "Name" :: (NamespaceFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } -> {"Name" :: (NamespaceFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } ) -> NamespaceFilter
+newNamespaceFilter' _Name _Values customize = (NamespaceFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 
 
@@ -1118,7 +1117,7 @@ instance encodeNamespaceName :: Encode NamespaceName where encode = genericEncod
 
 -- | <p>No namespace exists with the specified ID.</p>
 newtype NamespaceNotFound = NamespaceNotFound 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNamespaceNotFound :: Newtype NamespaceNotFound _
 derive instance repGenericNamespaceNotFound :: Generic NamespaceNotFound _
@@ -1128,18 +1127,18 @@ instance encodeNamespaceNotFound :: Encode NamespaceNotFound where encode = gene
 
 -- | Constructs NamespaceNotFound from required parameters
 newNamespaceNotFound :: NamespaceNotFound
-newNamespaceNotFound  = NamespaceNotFound { "Message": (NullOrUndefined Nothing) }
+newNamespaceNotFound  = NamespaceNotFound { "Message": Nothing }
 
 -- | Constructs NamespaceNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespaceNotFound' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> NamespaceNotFound
-newNamespaceNotFound'  customize = (NamespaceNotFound <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNamespaceNotFound' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> NamespaceNotFound
+newNamespaceNotFound'  customize = (NamespaceNotFound <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A complex type that contains information that is specific to the namespace type.</p>
 newtype NamespaceProperties = NamespaceProperties 
-  { "DnsProperties" :: NullOrUndefined (DnsProperties)
+  { "DnsProperties" :: Maybe (DnsProperties)
   }
 derive instance newtypeNamespaceProperties :: Newtype NamespaceProperties _
 derive instance repGenericNamespaceProperties :: Generic NamespaceProperties _
@@ -1149,12 +1148,12 @@ instance encodeNamespaceProperties :: Encode NamespaceProperties where encode = 
 
 -- | Constructs NamespaceProperties from required parameters
 newNamespaceProperties :: NamespaceProperties
-newNamespaceProperties  = NamespaceProperties { "DnsProperties": (NullOrUndefined Nothing) }
+newNamespaceProperties  = NamespaceProperties { "DnsProperties": Nothing }
 
 -- | Constructs NamespaceProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespaceProperties' :: ( { "DnsProperties" :: NullOrUndefined (DnsProperties) } -> {"DnsProperties" :: NullOrUndefined (DnsProperties) } ) -> NamespaceProperties
-newNamespaceProperties'  customize = (NamespaceProperties <<< customize) { "DnsProperties": (NullOrUndefined Nothing) }
+newNamespaceProperties' :: ( { "DnsProperties" :: Maybe (DnsProperties) } -> {"DnsProperties" :: Maybe (DnsProperties) } ) -> NamespaceProperties
+newNamespaceProperties'  customize = (NamespaceProperties <<< customize) { "DnsProperties": Nothing }
 
 
 
@@ -1169,10 +1168,10 @@ instance encodeNamespaceSummariesList :: Encode NamespaceSummariesList where enc
 
 -- | <p>A complex type that contains information about a namespace.</p>
 newtype NamespaceSummary = NamespaceSummary 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "Name" :: NullOrUndefined (NamespaceName)
-  , "Type" :: NullOrUndefined (NamespaceType)
+  { "Id" :: Maybe (ResourceId)
+  , "Arn" :: Maybe (Arn)
+  , "Name" :: Maybe (NamespaceName)
+  , "Type" :: Maybe (NamespaceType)
   }
 derive instance newtypeNamespaceSummary :: Newtype NamespaceSummary _
 derive instance repGenericNamespaceSummary :: Generic NamespaceSummary _
@@ -1182,12 +1181,12 @@ instance encodeNamespaceSummary :: Encode NamespaceSummary where encode = generi
 
 -- | Constructs NamespaceSummary from required parameters
 newNamespaceSummary :: NamespaceSummary
-newNamespaceSummary  = NamespaceSummary { "Arn": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newNamespaceSummary  = NamespaceSummary { "Arn": Nothing, "Id": Nothing, "Name": Nothing, "Type": Nothing }
 
 -- | Constructs NamespaceSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamespaceSummary' :: ( { "Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (NamespaceName) , "Type" :: NullOrUndefined (NamespaceType) } -> {"Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (NamespaceName) , "Type" :: NullOrUndefined (NamespaceType) } ) -> NamespaceSummary
-newNamespaceSummary'  customize = (NamespaceSummary <<< customize) { "Arn": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newNamespaceSummary' :: ( { "Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (NamespaceName) , "Type" :: Maybe (NamespaceType) } -> {"Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (NamespaceName) , "Type" :: Maybe (NamespaceType) } ) -> NamespaceSummary
+newNamespaceSummary'  customize = (NamespaceSummary <<< customize) { "Arn": Nothing, "Id": Nothing, "Name": Nothing, "Type": Nothing }
 
 
 
@@ -1211,14 +1210,14 @@ instance encodeNextToken :: Encode NextToken where encode = genericEncode option
 
 -- | <p>A complex type that contains information about a specified operation.</p>
 newtype Operation = Operation 
-  { "Id" :: NullOrUndefined (OperationId)
-  , "Type" :: NullOrUndefined (OperationType)
-  , "Status" :: NullOrUndefined (OperationStatus)
-  , "ErrorMessage" :: NullOrUndefined (Message)
-  , "ErrorCode" :: NullOrUndefined (Code)
-  , "CreateDate" :: NullOrUndefined (Types.Timestamp)
-  , "UpdateDate" :: NullOrUndefined (Types.Timestamp)
-  , "Targets" :: NullOrUndefined (OperationTargetsMap)
+  { "Id" :: Maybe (OperationId)
+  , "Type" :: Maybe (OperationType)
+  , "Status" :: Maybe (OperationStatus)
+  , "ErrorMessage" :: Maybe (Message)
+  , "ErrorCode" :: Maybe (Code)
+  , "CreateDate" :: Maybe (Types.Timestamp)
+  , "UpdateDate" :: Maybe (Types.Timestamp)
+  , "Targets" :: Maybe (OperationTargetsMap)
   }
 derive instance newtypeOperation :: Newtype Operation _
 derive instance repGenericOperation :: Generic Operation _
@@ -1228,12 +1227,12 @@ instance encodeOperation :: Encode Operation where encode = genericEncode option
 
 -- | Constructs Operation from required parameters
 newOperation :: Operation
-newOperation  = Operation { "CreateDate": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Targets": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing), "UpdateDate": (NullOrUndefined Nothing) }
+newOperation  = Operation { "CreateDate": Nothing, "ErrorCode": Nothing, "ErrorMessage": Nothing, "Id": Nothing, "Status": Nothing, "Targets": Nothing, "Type": Nothing, "UpdateDate": Nothing }
 
 -- | Constructs Operation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperation' :: ( { "Id" :: NullOrUndefined (OperationId) , "Type" :: NullOrUndefined (OperationType) , "Status" :: NullOrUndefined (OperationStatus) , "ErrorMessage" :: NullOrUndefined (Message) , "ErrorCode" :: NullOrUndefined (Code) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "UpdateDate" :: NullOrUndefined (Types.Timestamp) , "Targets" :: NullOrUndefined (OperationTargetsMap) } -> {"Id" :: NullOrUndefined (OperationId) , "Type" :: NullOrUndefined (OperationType) , "Status" :: NullOrUndefined (OperationStatus) , "ErrorMessage" :: NullOrUndefined (Message) , "ErrorCode" :: NullOrUndefined (Code) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "UpdateDate" :: NullOrUndefined (Types.Timestamp) , "Targets" :: NullOrUndefined (OperationTargetsMap) } ) -> Operation
-newOperation'  customize = (Operation <<< customize) { "CreateDate": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Targets": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing), "UpdateDate": (NullOrUndefined Nothing) }
+newOperation' :: ( { "Id" :: Maybe (OperationId) , "Type" :: Maybe (OperationType) , "Status" :: Maybe (OperationStatus) , "ErrorMessage" :: Maybe (Message) , "ErrorCode" :: Maybe (Code) , "CreateDate" :: Maybe (Types.Timestamp) , "UpdateDate" :: Maybe (Types.Timestamp) , "Targets" :: Maybe (OperationTargetsMap) } -> {"Id" :: Maybe (OperationId) , "Type" :: Maybe (OperationType) , "Status" :: Maybe (OperationStatus) , "ErrorMessage" :: Maybe (Message) , "ErrorCode" :: Maybe (Code) , "CreateDate" :: Maybe (Types.Timestamp) , "UpdateDate" :: Maybe (Types.Timestamp) , "Targets" :: Maybe (OperationTargetsMap) } ) -> Operation
+newOperation'  customize = (Operation <<< customize) { "CreateDate": Nothing, "ErrorCode": Nothing, "ErrorMessage": Nothing, "Id": Nothing, "Status": Nothing, "Targets": Nothing, "Type": Nothing, "UpdateDate": Nothing }
 
 
 
@@ -1241,7 +1240,7 @@ newOperation'  customize = (Operation <<< customize) { "CreateDate": (NullOrUnde
 newtype OperationFilter = OperationFilter 
   { "Name" :: (OperationFilterName)
   , "Values" :: (FilterValues)
-  , "Condition" :: NullOrUndefined (FilterCondition)
+  , "Condition" :: Maybe (FilterCondition)
   }
 derive instance newtypeOperationFilter :: Newtype OperationFilter _
 derive instance repGenericOperationFilter :: Generic OperationFilter _
@@ -1251,12 +1250,12 @@ instance encodeOperationFilter :: Encode OperationFilter where encode = genericE
 
 -- | Constructs OperationFilter from required parameters
 newOperationFilter :: OperationFilterName -> FilterValues -> OperationFilter
-newOperationFilter _Name _Values = OperationFilter { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newOperationFilter _Name _Values = OperationFilter { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 -- | Constructs OperationFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationFilter' :: OperationFilterName -> FilterValues -> ( { "Name" :: (OperationFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } -> {"Name" :: (OperationFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } ) -> OperationFilter
-newOperationFilter' _Name _Values customize = (OperationFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newOperationFilter' :: OperationFilterName -> FilterValues -> ( { "Name" :: (OperationFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } -> {"Name" :: (OperationFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } ) -> OperationFilter
+newOperationFilter' _Name _Values customize = (OperationFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 
 
@@ -1289,7 +1288,7 @@ instance encodeOperationId :: Encode OperationId where encode = genericEncode op
 
 -- | <p>No operation exists with the specified ID.</p>
 newtype OperationNotFound = OperationNotFound 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeOperationNotFound :: Newtype OperationNotFound _
 derive instance repGenericOperationNotFound :: Generic OperationNotFound _
@@ -1299,12 +1298,12 @@ instance encodeOperationNotFound :: Encode OperationNotFound where encode = gene
 
 -- | Constructs OperationNotFound from required parameters
 newOperationNotFound :: OperationNotFound
-newOperationNotFound  = OperationNotFound { "Message": (NullOrUndefined Nothing) }
+newOperationNotFound  = OperationNotFound { "Message": Nothing }
 
 -- | Constructs OperationNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationNotFound' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> OperationNotFound
-newOperationNotFound'  customize = (OperationNotFound <<< customize) { "Message": (NullOrUndefined Nothing) }
+newOperationNotFound' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> OperationNotFound
+newOperationNotFound'  customize = (OperationNotFound <<< customize) { "Message": Nothing }
 
 
 
@@ -1319,8 +1318,8 @@ instance encodeOperationStatus :: Encode OperationStatus where encode = genericE
 
 -- | <p>A complex type that contains information about an operation that matches the criteria that you specified in a <a>ListOperations</a> request.</p>
 newtype OperationSummary = OperationSummary 
-  { "Id" :: NullOrUndefined (OperationId)
-  , "Status" :: NullOrUndefined (OperationStatus)
+  { "Id" :: Maybe (OperationId)
+  , "Status" :: Maybe (OperationStatus)
   }
 derive instance newtypeOperationSummary :: Newtype OperationSummary _
 derive instance repGenericOperationSummary :: Generic OperationSummary _
@@ -1330,12 +1329,12 @@ instance encodeOperationSummary :: Encode OperationSummary where encode = generi
 
 -- | Constructs OperationSummary from required parameters
 newOperationSummary :: OperationSummary
-newOperationSummary  = OperationSummary { "Id": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newOperationSummary  = OperationSummary { "Id": Nothing, "Status": Nothing }
 
 -- | Constructs OperationSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationSummary' :: ( { "Id" :: NullOrUndefined (OperationId) , "Status" :: NullOrUndefined (OperationStatus) } -> {"Id" :: NullOrUndefined (OperationId) , "Status" :: NullOrUndefined (OperationStatus) } ) -> OperationSummary
-newOperationSummary'  customize = (OperationSummary <<< customize) { "Id": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newOperationSummary' :: ( { "Id" :: Maybe (OperationId) , "Status" :: Maybe (OperationStatus) } -> {"Id" :: Maybe (OperationId) , "Status" :: Maybe (OperationStatus) } ) -> OperationSummary
+newOperationSummary'  customize = (OperationSummary <<< customize) { "Id": Nothing, "Status": Nothing }
 
 
 
@@ -1396,7 +1395,7 @@ instance encodeRecordType :: Encode RecordType where encode = genericEncode opti
 newtype RegisterInstanceRequest = RegisterInstanceRequest 
   { "ServiceId" :: (ResourceId)
   , "InstanceId" :: (ResourceId)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
+  , "CreatorRequestId" :: Maybe (ResourceId)
   , "Attributes" :: (Attributes)
   }
 derive instance newtypeRegisterInstanceRequest :: Newtype RegisterInstanceRequest _
@@ -1407,17 +1406,17 @@ instance encodeRegisterInstanceRequest :: Encode RegisterInstanceRequest where e
 
 -- | Constructs RegisterInstanceRequest from required parameters
 newRegisterInstanceRequest :: Attributes -> ResourceId -> ResourceId -> RegisterInstanceRequest
-newRegisterInstanceRequest _Attributes _InstanceId _ServiceId = RegisterInstanceRequest { "Attributes": _Attributes, "InstanceId": _InstanceId, "ServiceId": _ServiceId, "CreatorRequestId": (NullOrUndefined Nothing) }
+newRegisterInstanceRequest _Attributes _InstanceId _ServiceId = RegisterInstanceRequest { "Attributes": _Attributes, "InstanceId": _InstanceId, "ServiceId": _ServiceId, "CreatorRequestId": Nothing }
 
 -- | Constructs RegisterInstanceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterInstanceRequest' :: Attributes -> ResourceId -> ResourceId -> ( { "ServiceId" :: (ResourceId) , "InstanceId" :: (ResourceId) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Attributes" :: (Attributes) } -> {"ServiceId" :: (ResourceId) , "InstanceId" :: (ResourceId) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "Attributes" :: (Attributes) } ) -> RegisterInstanceRequest
-newRegisterInstanceRequest' _Attributes _InstanceId _ServiceId customize = (RegisterInstanceRequest <<< customize) { "Attributes": _Attributes, "InstanceId": _InstanceId, "ServiceId": _ServiceId, "CreatorRequestId": (NullOrUndefined Nothing) }
+newRegisterInstanceRequest' :: Attributes -> ResourceId -> ResourceId -> ( { "ServiceId" :: (ResourceId) , "InstanceId" :: (ResourceId) , "CreatorRequestId" :: Maybe (ResourceId) , "Attributes" :: (Attributes) } -> {"ServiceId" :: (ResourceId) , "InstanceId" :: (ResourceId) , "CreatorRequestId" :: Maybe (ResourceId) , "Attributes" :: (Attributes) } ) -> RegisterInstanceRequest
+newRegisterInstanceRequest' _Attributes _InstanceId _ServiceId customize = (RegisterInstanceRequest <<< customize) { "Attributes": _Attributes, "InstanceId": _InstanceId, "ServiceId": _ServiceId, "CreatorRequestId": Nothing }
 
 
 
 newtype RegisterInstanceResponse = RegisterInstanceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeRegisterInstanceResponse :: Newtype RegisterInstanceResponse _
 derive instance repGenericRegisterInstanceResponse :: Generic RegisterInstanceResponse _
@@ -1427,12 +1426,12 @@ instance encodeRegisterInstanceResponse :: Encode RegisterInstanceResponse where
 
 -- | Constructs RegisterInstanceResponse from required parameters
 newRegisterInstanceResponse :: RegisterInstanceResponse
-newRegisterInstanceResponse  = RegisterInstanceResponse { "OperationId": (NullOrUndefined Nothing) }
+newRegisterInstanceResponse  = RegisterInstanceResponse { "OperationId": Nothing }
 
 -- | Constructs RegisterInstanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterInstanceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> RegisterInstanceResponse
-newRegisterInstanceResponse'  customize = (RegisterInstanceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newRegisterInstanceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> RegisterInstanceResponse
+newRegisterInstanceResponse'  customize = (RegisterInstanceResponse <<< customize) { "OperationId": Nothing }
 
 
 
@@ -1465,7 +1464,7 @@ instance encodeResourceId :: Encode ResourceId where encode = genericEncode opti
 
 -- | <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
 newtype ResourceInUse = ResourceInUse 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceInUse :: Newtype ResourceInUse _
 derive instance repGenericResourceInUse :: Generic ResourceInUse _
@@ -1475,18 +1474,18 @@ instance encodeResourceInUse :: Encode ResourceInUse where encode = genericEncod
 
 -- | Constructs ResourceInUse from required parameters
 newResourceInUse :: ResourceInUse
-newResourceInUse  = ResourceInUse { "Message": (NullOrUndefined Nothing) }
+newResourceInUse  = ResourceInUse { "Message": Nothing }
 
 -- | Constructs ResourceInUse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceInUse' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceInUse
-newResourceInUse'  customize = (ResourceInUse <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceInUse' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceInUse
+newResourceInUse'  customize = (ResourceInUse <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The resource can't be created because you've reached the limit on the number of resources.</p>
 newtype ResourceLimitExceeded = ResourceLimitExceeded 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeResourceLimitExceeded :: Newtype ResourceLimitExceeded _
 derive instance repGenericResourceLimitExceeded :: Generic ResourceLimitExceeded _
@@ -1496,12 +1495,12 @@ instance encodeResourceLimitExceeded :: Encode ResourceLimitExceeded where encod
 
 -- | Constructs ResourceLimitExceeded from required parameters
 newResourceLimitExceeded :: ResourceLimitExceeded
-newResourceLimitExceeded  = ResourceLimitExceeded { "Message": (NullOrUndefined Nothing) }
+newResourceLimitExceeded  = ResourceLimitExceeded { "Message": Nothing }
 
 -- | Constructs ResourceLimitExceeded's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceLimitExceeded' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ResourceLimitExceeded
-newResourceLimitExceeded'  customize = (ResourceLimitExceeded <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceLimitExceeded' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ResourceLimitExceeded
+newResourceLimitExceeded'  customize = (ResourceLimitExceeded <<< customize) { "Message": Nothing }
 
 
 
@@ -1525,15 +1524,15 @@ instance encodeRoutingPolicy :: Encode RoutingPolicy where encode = genericEncod
 
 -- | <p>A complex type that contains information about the specified service.</p>
 newtype Service = Service 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "Name" :: NullOrUndefined (ServiceName)
-  , "Description" :: NullOrUndefined (ResourceDescription)
-  , "InstanceCount" :: NullOrUndefined (ResourceCount)
-  , "DnsConfig" :: NullOrUndefined (DnsConfig)
-  , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig)
-  , "CreateDate" :: NullOrUndefined (Types.Timestamp)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
+  { "Id" :: Maybe (ResourceId)
+  , "Arn" :: Maybe (Arn)
+  , "Name" :: Maybe (ServiceName)
+  , "Description" :: Maybe (ResourceDescription)
+  , "InstanceCount" :: Maybe (ResourceCount)
+  , "DnsConfig" :: Maybe (DnsConfig)
+  , "HealthCheckConfig" :: Maybe (HealthCheckConfig)
+  , "CreateDate" :: Maybe (Types.Timestamp)
+  , "CreatorRequestId" :: Maybe (ResourceId)
   }
 derive instance newtypeService :: Newtype Service _
 derive instance repGenericService :: Generic Service _
@@ -1543,20 +1542,20 @@ instance encodeService :: Encode Service where encode = genericEncode options
 
 -- | Constructs Service from required parameters
 newService :: Service
-newService  = Service { "Arn": (NullOrUndefined Nothing), "CreateDate": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DnsConfig": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InstanceCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newService  = Service { "Arn": Nothing, "CreateDate": Nothing, "CreatorRequestId": Nothing, "Description": Nothing, "DnsConfig": Nothing, "HealthCheckConfig": Nothing, "Id": Nothing, "InstanceCount": Nothing, "Name": Nothing }
 
 -- | Constructs Service's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newService' :: ( { "Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (ServiceName) , "Description" :: NullOrUndefined (ResourceDescription) , "InstanceCount" :: NullOrUndefined (ResourceCount) , "DnsConfig" :: NullOrUndefined (DnsConfig) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "CreatorRequestId" :: NullOrUndefined (ResourceId) } -> {"Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (ServiceName) , "Description" :: NullOrUndefined (ResourceDescription) , "InstanceCount" :: NullOrUndefined (ResourceCount) , "DnsConfig" :: NullOrUndefined (DnsConfig) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) , "CreateDate" :: NullOrUndefined (Types.Timestamp) , "CreatorRequestId" :: NullOrUndefined (ResourceId) } ) -> Service
-newService'  customize = (Service <<< customize) { "Arn": (NullOrUndefined Nothing), "CreateDate": (NullOrUndefined Nothing), "CreatorRequestId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "DnsConfig": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InstanceCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newService' :: ( { "Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (ServiceName) , "Description" :: Maybe (ResourceDescription) , "InstanceCount" :: Maybe (ResourceCount) , "DnsConfig" :: Maybe (DnsConfig) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) , "CreateDate" :: Maybe (Types.Timestamp) , "CreatorRequestId" :: Maybe (ResourceId) } -> {"Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (ServiceName) , "Description" :: Maybe (ResourceDescription) , "InstanceCount" :: Maybe (ResourceCount) , "DnsConfig" :: Maybe (DnsConfig) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) , "CreateDate" :: Maybe (Types.Timestamp) , "CreatorRequestId" :: Maybe (ResourceId) } ) -> Service
+newService'  customize = (Service <<< customize) { "Arn": Nothing, "CreateDate": Nothing, "CreatorRequestId": Nothing, "Description": Nothing, "DnsConfig": Nothing, "HealthCheckConfig": Nothing, "Id": Nothing, "InstanceCount": Nothing, "Name": Nothing }
 
 
 
 -- | <p>The service can't be created because a service with the same name already exists.</p>
 newtype ServiceAlreadyExists = ServiceAlreadyExists 
-  { "Message" :: NullOrUndefined (ErrorMessage)
-  , "CreatorRequestId" :: NullOrUndefined (ResourceId)
-  , "ServiceId" :: NullOrUndefined (ResourceId)
+  { "Message" :: Maybe (ErrorMessage)
+  , "CreatorRequestId" :: Maybe (ResourceId)
+  , "ServiceId" :: Maybe (ResourceId)
   }
 derive instance newtypeServiceAlreadyExists :: Newtype ServiceAlreadyExists _
 derive instance repGenericServiceAlreadyExists :: Generic ServiceAlreadyExists _
@@ -1566,20 +1565,20 @@ instance encodeServiceAlreadyExists :: Encode ServiceAlreadyExists where encode 
 
 -- | Constructs ServiceAlreadyExists from required parameters
 newServiceAlreadyExists :: ServiceAlreadyExists
-newServiceAlreadyExists  = ServiceAlreadyExists { "CreatorRequestId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "ServiceId": (NullOrUndefined Nothing) }
+newServiceAlreadyExists  = ServiceAlreadyExists { "CreatorRequestId": Nothing, "Message": Nothing, "ServiceId": Nothing }
 
 -- | Constructs ServiceAlreadyExists's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceAlreadyExists' :: ( { "Message" :: NullOrUndefined (ErrorMessage) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "ServiceId" :: NullOrUndefined (ResourceId) } -> {"Message" :: NullOrUndefined (ErrorMessage) , "CreatorRequestId" :: NullOrUndefined (ResourceId) , "ServiceId" :: NullOrUndefined (ResourceId) } ) -> ServiceAlreadyExists
-newServiceAlreadyExists'  customize = (ServiceAlreadyExists <<< customize) { "CreatorRequestId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "ServiceId": (NullOrUndefined Nothing) }
+newServiceAlreadyExists' :: ( { "Message" :: Maybe (ErrorMessage) , "CreatorRequestId" :: Maybe (ResourceId) , "ServiceId" :: Maybe (ResourceId) } -> {"Message" :: Maybe (ErrorMessage) , "CreatorRequestId" :: Maybe (ResourceId) , "ServiceId" :: Maybe (ResourceId) } ) -> ServiceAlreadyExists
+newServiceAlreadyExists'  customize = (ServiceAlreadyExists <<< customize) { "CreatorRequestId": Nothing, "Message": Nothing, "ServiceId": Nothing }
 
 
 
 -- | <p>A complex type that contains changes to an existing service.</p>
 newtype ServiceChange = ServiceChange 
-  { "Description" :: NullOrUndefined (ResourceDescription)
+  { "Description" :: Maybe (ResourceDescription)
   , "DnsConfig" :: (DnsConfigChange)
-  , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig)
+  , "HealthCheckConfig" :: Maybe (HealthCheckConfig)
   }
 derive instance newtypeServiceChange :: Newtype ServiceChange _
 derive instance repGenericServiceChange :: Generic ServiceChange _
@@ -1589,12 +1588,12 @@ instance encodeServiceChange :: Encode ServiceChange where encode = genericEncod
 
 -- | Constructs ServiceChange from required parameters
 newServiceChange :: DnsConfigChange -> ServiceChange
-newServiceChange _DnsConfig = ServiceChange { "DnsConfig": _DnsConfig, "Description": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing) }
+newServiceChange _DnsConfig = ServiceChange { "DnsConfig": _DnsConfig, "Description": Nothing, "HealthCheckConfig": Nothing }
 
 -- | Constructs ServiceChange's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceChange' :: DnsConfigChange -> ( { "Description" :: NullOrUndefined (ResourceDescription) , "DnsConfig" :: (DnsConfigChange) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) } -> {"Description" :: NullOrUndefined (ResourceDescription) , "DnsConfig" :: (DnsConfigChange) , "HealthCheckConfig" :: NullOrUndefined (HealthCheckConfig) } ) -> ServiceChange
-newServiceChange' _DnsConfig customize = (ServiceChange <<< customize) { "DnsConfig": _DnsConfig, "Description": (NullOrUndefined Nothing), "HealthCheckConfig": (NullOrUndefined Nothing) }
+newServiceChange' :: DnsConfigChange -> ( { "Description" :: Maybe (ResourceDescription) , "DnsConfig" :: (DnsConfigChange) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) } -> {"Description" :: Maybe (ResourceDescription) , "DnsConfig" :: (DnsConfigChange) , "HealthCheckConfig" :: Maybe (HealthCheckConfig) } ) -> ServiceChange
+newServiceChange' _DnsConfig customize = (ServiceChange <<< customize) { "DnsConfig": _DnsConfig, "Description": Nothing, "HealthCheckConfig": Nothing }
 
 
 
@@ -1602,7 +1601,7 @@ newServiceChange' _DnsConfig customize = (ServiceChange <<< customize) { "DnsCon
 newtype ServiceFilter = ServiceFilter 
   { "Name" :: (ServiceFilterName)
   , "Values" :: (FilterValues)
-  , "Condition" :: NullOrUndefined (FilterCondition)
+  , "Condition" :: Maybe (FilterCondition)
   }
 derive instance newtypeServiceFilter :: Newtype ServiceFilter _
 derive instance repGenericServiceFilter :: Generic ServiceFilter _
@@ -1612,12 +1611,12 @@ instance encodeServiceFilter :: Encode ServiceFilter where encode = genericEncod
 
 -- | Constructs ServiceFilter from required parameters
 newServiceFilter :: ServiceFilterName -> FilterValues -> ServiceFilter
-newServiceFilter _Name _Values = ServiceFilter { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newServiceFilter _Name _Values = ServiceFilter { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 -- | Constructs ServiceFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceFilter' :: ServiceFilterName -> FilterValues -> ( { "Name" :: (ServiceFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } -> {"Name" :: (ServiceFilterName) , "Values" :: (FilterValues) , "Condition" :: NullOrUndefined (FilterCondition) } ) -> ServiceFilter
-newServiceFilter' _Name _Values customize = (ServiceFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": (NullOrUndefined Nothing) }
+newServiceFilter' :: ServiceFilterName -> FilterValues -> ( { "Name" :: (ServiceFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } -> {"Name" :: (ServiceFilterName) , "Values" :: (FilterValues) , "Condition" :: Maybe (FilterCondition) } ) -> ServiceFilter
+newServiceFilter' _Name _Values customize = (ServiceFilter <<< customize) { "Name": _Name, "Values": _Values, "Condition": Nothing }
 
 
 
@@ -1650,7 +1649,7 @@ instance encodeServiceName :: Encode ServiceName where encode = genericEncode op
 
 -- | <p>No service exists with the specified ID.</p>
 newtype ServiceNotFound = ServiceNotFound 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeServiceNotFound :: Newtype ServiceNotFound _
 derive instance repGenericServiceNotFound :: Generic ServiceNotFound _
@@ -1660,12 +1659,12 @@ instance encodeServiceNotFound :: Encode ServiceNotFound where encode = genericE
 
 -- | Constructs ServiceNotFound from required parameters
 newServiceNotFound :: ServiceNotFound
-newServiceNotFound  = ServiceNotFound { "Message": (NullOrUndefined Nothing) }
+newServiceNotFound  = ServiceNotFound { "Message": Nothing }
 
 -- | Constructs ServiceNotFound's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceNotFound' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ServiceNotFound
-newServiceNotFound'  customize = (ServiceNotFound <<< customize) { "Message": (NullOrUndefined Nothing) }
+newServiceNotFound' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ServiceNotFound
+newServiceNotFound'  customize = (ServiceNotFound <<< customize) { "Message": Nothing }
 
 
 
@@ -1680,11 +1679,11 @@ instance encodeServiceSummariesList :: Encode ServiceSummariesList where encode 
 
 -- | <p>A complex type that contains information about a specified service.</p>
 newtype ServiceSummary = ServiceSummary 
-  { "Id" :: NullOrUndefined (ResourceId)
-  , "Arn" :: NullOrUndefined (Arn)
-  , "Name" :: NullOrUndefined (ServiceName)
-  , "Description" :: NullOrUndefined (ResourceDescription)
-  , "InstanceCount" :: NullOrUndefined (ResourceCount)
+  { "Id" :: Maybe (ResourceId)
+  , "Arn" :: Maybe (Arn)
+  , "Name" :: Maybe (ServiceName)
+  , "Description" :: Maybe (ResourceDescription)
+  , "InstanceCount" :: Maybe (ResourceCount)
   }
 derive instance newtypeServiceSummary :: Newtype ServiceSummary _
 derive instance repGenericServiceSummary :: Generic ServiceSummary _
@@ -1694,12 +1693,12 @@ instance encodeServiceSummary :: Encode ServiceSummary where encode = genericEnc
 
 -- | Constructs ServiceSummary from required parameters
 newServiceSummary :: ServiceSummary
-newServiceSummary  = ServiceSummary { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InstanceCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newServiceSummary  = ServiceSummary { "Arn": Nothing, "Description": Nothing, "Id": Nothing, "InstanceCount": Nothing, "Name": Nothing }
 
 -- | Constructs ServiceSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceSummary' :: ( { "Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (ServiceName) , "Description" :: NullOrUndefined (ResourceDescription) , "InstanceCount" :: NullOrUndefined (ResourceCount) } -> {"Id" :: NullOrUndefined (ResourceId) , "Arn" :: NullOrUndefined (Arn) , "Name" :: NullOrUndefined (ServiceName) , "Description" :: NullOrUndefined (ResourceDescription) , "InstanceCount" :: NullOrUndefined (ResourceCount) } ) -> ServiceSummary
-newServiceSummary'  customize = (ServiceSummary <<< customize) { "Arn": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InstanceCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newServiceSummary' :: ( { "Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (ServiceName) , "Description" :: Maybe (ResourceDescription) , "InstanceCount" :: Maybe (ResourceCount) } -> {"Id" :: Maybe (ResourceId) , "Arn" :: Maybe (Arn) , "Name" :: Maybe (ServiceName) , "Description" :: Maybe (ResourceDescription) , "InstanceCount" :: Maybe (ResourceCount) } ) -> ServiceSummary
+newServiceSummary'  customize = (ServiceSummary <<< customize) { "Arn": Nothing, "Description": Nothing, "Id": Nothing, "InstanceCount": Nothing, "Name": Nothing }
 
 
 
@@ -1725,7 +1724,7 @@ newUpdateServiceRequest' _Id _Service customize = (UpdateServiceRequest <<< cust
 
 
 newtype UpdateServiceResponse = UpdateServiceResponse 
-  { "OperationId" :: NullOrUndefined (OperationId)
+  { "OperationId" :: Maybe (OperationId)
   }
 derive instance newtypeUpdateServiceResponse :: Newtype UpdateServiceResponse _
 derive instance repGenericUpdateServiceResponse :: Generic UpdateServiceResponse _
@@ -1735,10 +1734,10 @@ instance encodeUpdateServiceResponse :: Encode UpdateServiceResponse where encod
 
 -- | Constructs UpdateServiceResponse from required parameters
 newUpdateServiceResponse :: UpdateServiceResponse
-newUpdateServiceResponse  = UpdateServiceResponse { "OperationId": (NullOrUndefined Nothing) }
+newUpdateServiceResponse  = UpdateServiceResponse { "OperationId": Nothing }
 
 -- | Constructs UpdateServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServiceResponse' :: ( { "OperationId" :: NullOrUndefined (OperationId) } -> {"OperationId" :: NullOrUndefined (OperationId) } ) -> UpdateServiceResponse
-newUpdateServiceResponse'  customize = (UpdateServiceResponse <<< customize) { "OperationId": (NullOrUndefined Nothing) }
+newUpdateServiceResponse' :: ( { "OperationId" :: Maybe (OperationId) } -> {"OperationId" :: Maybe (OperationId) } ) -> UpdateServiceResponse
+newUpdateServiceResponse'  customize = (UpdateServiceResponse <<< customize) { "OperationId": Nothing }
 
